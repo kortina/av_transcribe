@@ -12,7 +12,15 @@ def main() -> None:
     parser.add_argument(
         "directory", type=str, help="directory containing av media files"
     )
+    parser.add_argument(
+        "--regex",
+        type=str,
+        default=None,
+        help='regex for filenames to transcribe, eg: "\\.(aac|braw|flac|mov|mp3|mp4|wav)$"',
+    )
     known_args, whisper_args = parser.parse_known_args()
+    if known_args.regex:
+        S.REGEX_AV = re.compile(known_args.regex)
 
     # pass additional arguments (--model --language etc) on to whisper
     S.WHISPER_ARGS = whisper_args
@@ -30,7 +38,7 @@ class S:
     # override with cli args
     DEBUG = True
     MODEL = "small"
-    REGEX_AV = re.compile(r"\.(braw|mov|mp3|mp4)$", re.I)
+    REGEX_AV = re.compile(r"\.(aac|braw|flac|mov|mp3|mp4|wav)$", re.I)
     WHISPER_ARGS: List[str] = []
 
 
@@ -51,6 +59,8 @@ class AV:
 
     def transcribe(self) -> None:
         if not self.matches_av_regex():
+            if S.DEBUG:
+                self._skip("regex")
             return
         if self.already_transcribed():
             return self._skip("srt exists")

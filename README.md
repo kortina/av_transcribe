@@ -4,6 +4,11 @@
 
 It's designed to create searchable text for large av projects and work well with editors like DaVinci Resolve.
 
+TODO:
+- installation
+- usage
+- import to video editing software
+
 `av_transcribe.py` has one required argument, the path to the directory you want to transcribe all the media in. You can additionally pass through any arguments you want to [whisper][] (eg, `--model` or `--language` -- see their docs for details).
 
 Given the following folder hierarchy:
@@ -40,13 +45,19 @@ av_transcribe.py .
 ./audio/mp3/1998-Purdue-Pharma-marketing-video-LaxlJXpwkzs.mp3.txt
 ```
 
-You can then import an srt into DaVinci Resolve and drag into a timeline with your video clip:
+If a `.srt` file already exists for an av file, that file will be skipped. To re-transcribe a file, simply delete the `.srt` file.
+
+You can import a `.srt` into DaVinci Resolve and drag into a timeline with your video clip:
 
 <img width="1444" alt="image" src="https://user-images.githubusercontent.com/5924/204854636-82d9724e-b448-46a3-afa0-0eb6209a6169.png">
 
-You can also use a command line tool like [ripgrep][] to search your entire corpus of media:
+You can also use a command line tool like [ripgrep][] to search your entire corpus of media.
+
+Here's how to search all your `.mp4` files for "doctor."
 
 ```sh
+rg -A 5 doctor -g "*.mp4.srt"
+
 video/mp4/1998-Purdue-Pharma-marketing-video-LaxlJXpwkzs.mp4.srt
 3:Once you've found the right doctor and have told him or her about your pain, don't be afraid to take what they give you.
 4-

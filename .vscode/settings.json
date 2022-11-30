@@ -1,0 +1,6 @@
+{
+  "cSpell.words": ["flac"],
+  "files.exclude": {
+    ".mypy_cache/": true
+}
+}

@@ -4,10 +4,24 @@
 
 It's designed to create searchable text for large av projects and work well with editors like DaVinci Resolve.
 
-TODO:
-- installation
-- usage
-- import to video editing software
+- [Installation](#installation)
+- [Usage](#usage)
+- [Import to Video Editing Software](#import-to-video-editing-software)
+
+## Installation
+
+Clone this repo and add it to your path.
+
+```sh
+cd ~/src
+git clone git@github.com:kortina/av_transcribe.git
+# add this to your profile:
+export PATH="$HOME/av_transcribe:$PATH"
+```
+
+Install [whisper][] (follow the instructions on their github readme).
+
+## Usage
 
 `av_transcribe.py` has one required argument, the path to the directory you want to transcribe all the media in. You can additionally pass through any arguments you want to [whisper][] (eg, `--model` or `--language` -- see their docs for details).
 
@@ -46,6 +60,17 @@ av_transcribe.py .
 ```
 
 If a `.srt` file already exists for an av file, that file will be skipped. To re-transcribe a file, simply delete the `.srt` file.
+
+By default, `av_transcribe.py` transcribes files with these extensions: `aac|braw|flac|mov|mp3|mp4|wav` -- but you can set it to match any video or audio files using the `--regex` flag, eg:
+
+```sh
+av_transcribe.py . --regex="\.(mov|mp3)$"
+# will transcribe only mov and mp3 files
+```
+
+## Import to Video Editing Software
+
+The main purpose of `av_transcribe.py` is transcription of media files for large av projects, so you'll probably want to import the subtitles to your editor. Here's how to do it with Resolve...
 
 You can import a `.srt` into DaVinci Resolve and drag into a timeline with your video clip:
 

@@ -7,6 +7,7 @@ It's designed to create searchable text for large av projects and work well with
 - [Installation](#installation)
 - [Usage](#usage)
 - [Import to Video Editing Software](#import-to-video-editing-software)
+- [Screenshots](#screenshots)
 
 ## Installation
 
@@ -91,6 +92,13 @@ video/mp4/1998-Purdue-Pharma-marketing-video-LaxlJXpwkzs.mp4.srt
 7-Often it will be an opioid medication.
 8-
 ```
+
+## Screenshots
+
+Here's an example of what it looks like running:
+
+<img width="1802" alt="image" src="https://user-images.githubusercontent.com/5924/204869077-29baf283-246b-4ee4-8859-286d729bf043.png">
+
 
 [whisper]: https://github.com/openai/whisper
 [ripgrep]: https://github.com/BurntSushi/ripgrep

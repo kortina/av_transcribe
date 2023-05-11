@@ -65,7 +65,7 @@ av_transcribe.py .
 
 If a `.srt` file already exists for an av file, that file will be skipped. To re-transcribe a file, simply delete the `.srt` file.
 
-By default, `av_transcribe.py` transcribes files with these extensions: `aac|braw|flac|mov|mp3|mp4|wav` -- but you can set it to match any video or audio files using the `--regex` flag, eg:
+By default, `av_transcribe.py` transcribes files with these extensions: `aac|braw|flac|m4a|mov|mp3|mp4|wav` -- but you can set it to match any video or audio files using the `--regex` flag, eg:
 
 ```sh
 av_transcribe.py . --regex="\.(mov|mp3)$"

@@ -4,8 +4,11 @@
 
 It's designed to create searchable text for large av projects and work well with editors like DaVinci Resolve.
 
+It's also great for transcribing your Apple / iOS Voice Memos.
+
 - [Installation](#installation)
 - [Usage](#usage)
+- [Transcribe Voice Memos](#transcribe-voice-memos)
 - [Import to Video Editing Software](#import-to-video-editing-software)
 - [Screenshots](#screenshots)
 
@@ -69,6 +72,14 @@ av_transcribe.py . --regex="\.(mov|mp3)$"
 # will transcribe only mov and mp3 files
 ```
 
+## Transcribe Voice Memos
+
+In OSX Ventura, Voice Memos are stored in `~/Library/Application\ Support/com.apple.voicememos/Recordings/`. You can transcribe all of them with:
+
+```sh
+cd ~/Library/Application\ Support/com.apple.voicememos/Recordings/ && av_transcribe.py .
+```
+
 ## Import to Video Editing Software
 
 The main purpose of `av_transcribe.py` is transcription of media files for large av projects, so you'll probably want to import the subtitles to your editor. Here's how to do it with Resolve...
@@ -98,7 +109,6 @@ video/mp4/1998-Purdue-Pharma-marketing-video-LaxlJXpwkzs.mp4.srt
 Here's an example of what it looks like running:
 
 <img width="1802" alt="image" src="https://user-images.githubusercontent.com/5924/204869077-29baf283-246b-4ee4-8859-286d729bf043.png">
-
 
 [whisper]: https://github.com/openai/whisper
 [ripgrep]: https://github.com/BurntSushi/ripgrep

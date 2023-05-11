@@ -16,7 +16,7 @@ def main() -> None:
         "--regex",
         type=str,
         default=None,
-        help='regex for filenames to transcribe, eg: "\\.(aac|braw|flac|mov|mp3|mp4|wav)$"',
+        help='regex for filenames to transcribe, eg: "\\.(aac|braw|flac|m4a|mov|mp3|mp4|wav)$"',
     )
     known_args, whisper_args = parser.parse_known_args()
     if known_args.regex:
@@ -38,7 +38,7 @@ class S:
     # override with cli args
     DEBUG = True
     MODEL = "small"
-    REGEX_AV = re.compile(r"\.(aac|braw|flac|mov|mp3|mp4|wav)$", re.I)
+    REGEX_AV = re.compile(r"\.(aac|braw|flac|m4a|mov|mp3|mp4|wav)$", re.I)
     WHISPER_ARGS: List[str] = []
 
 
